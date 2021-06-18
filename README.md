@@ -92,10 +92,10 @@ bspwmrc (default 1920x1080) to your needs
 
 ## ~ keymap
 
-find your [country - code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements), and replace the existing one in your [bspwmrc](https://github.com/doleovit/voidbspwm/blob/main/home/.config/bspwm/bspwmrc#L36). french example:
+find your [country - code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements), and replace the existing one in your [bspwmrc](https://github.com/doleovit/voidbspwm/blob/main/home/.config/bspwm/bspwmrc#L36).
 
 ```
-setxkbmap -layout fr
+setxkbmap -layout fr   # french example
 ```
 
 ## polybar
@@ -119,10 +119,10 @@ workspace | battery | alsa ( klick → mute ) | time ( klick → date ) | connec
 
 ## detangle
 
-if a package depends on an [ignored package](https://github.com/doleovit/voidbspwm/blob/main/install.sh#L42 "klick for a complete overview"), the dependency will be satisfied without installing the ignored package. examine whatever package you choose
+if a package depends on an [ignored package](https://github.com/doleovit/voidbspwm/blob/main/install.sh#L42 "klick for a complete overview"), the dependency will be satisfied without installing the ignored package. examine whatever package you choose, or choose to
 
 ```bash
-#  .. or choose to revise these choices →
+# ↓↓       revise these choices        ↓↓
 sudo rm /etc/xbps.d/<№>-ignore-<pkg>.conf
 ```
 
