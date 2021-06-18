@@ -91,7 +91,7 @@ bspwmrc (default 1920x1080) to your needs
 
 ## ~ keymap
 
-find your [country - code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements), and replace the existing one in [bspwmrc](https://github.com/doleovit/voidbspwm/blob/main/home/.config/bspwm/bspwmrc#L36).
+find your [country - code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements), and replace the [existing one](https://github.com/doleovit/voidbspwm/blob/main/home/.config/bspwm/bspwmrc#L36).
 
 ```bash
 setxkbmap -layout fr   # french example
