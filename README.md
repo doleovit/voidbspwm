@@ -36,7 +36,7 @@ void-installer
 
 ```
 sudo xbps-install -S git
-$ git clone https://codeberg.org/doleovit/voidbspwm.git
+$ git clone https://github.com/doleovit/voidbspwm.git
 ```
 
 ## 3: run script
@@ -92,7 +92,7 @@ bspwmrc (default 1920x1080) to your needs
 
 ## ~ keymap
 
-find your [country - code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements), and replace the existing one in your [bspwmrc](https://codeberg.org/doleovit/voidbspwm/src/branch/main/home/.config/bspwm/bspwmrc#L36). this is a french example:
+find your [country - code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements), and replace the existing one in your [bspwmrc](https://github.com/doleovit/voidbspwm/blob/main/home/.config/bspwm/bspwmrc#L36). french example:
 
 ```
 setxkbmap -layout fr
@@ -119,9 +119,10 @@ workspace | battery | alsa ( klick → mute ) | time ( klick → date ) | connec
 
 ## detangle
 
-if a package depends on an [ignored package](https://codeberg.org/doleovit/voidbspwm/src/branch/main/install.sh#L42 "klick for a complete overview"), the dependency will be satisfied without installing the ignored package. examine whatever package you choose, or choose to revise these choices:
+if a package depends on an [ignored package](https://github.com/doleovit/voidbspwm/blob/main/install.sh#L42 "klick for a complete overview"), the dependency will be satisfied without installing the ignored package. examine whatever package you choose
 
 ```bash
+#  .. or choose to revise these choices →
 sudo rm /etc/xbps.d/<№>-ignore-<pkg>.conf
 ```
 
@@ -195,7 +196,7 @@ $ rm        # careful +verbose
 
 ## binding
 
-- `super + u` → release → [press](https://codeberg.org/doleovit/voidbspwm/src/branch/main/home/.config/sxhkd/sxhkdrc) `p`
+- `super + u` → release → [press](https://github.com/doleovit/voidbspwm/blob/main/home/.config/sxhkd/sxhkdrc) `p`
 - `$ flh` → and search for → `sxhk`
 
 ## theend
