@@ -1,0 +1,65 @@
+! font settings
+URxvt.font: xft:DejaVu Sans:style=Book:size=9.5
+URxvt.boldFont: xft:DejaVu Sans:style=Book:size=9.5
+URxvt.italicFont: xft:DejaVu Sans:style=Book:size=9.5
+URxvt.boldItalicFont: xft:DejaVu Sans:style=Book:size=9.5
+
+! xft settings
+Xft.antialias: true
+Xft.hinting: true
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
+
+! 96-192
+Xft.dpi: 96
+
+! none-50-55-60
+URxvt.transparent: true
+URxvt.shading: 50
+
+! urxvt settings
+URxvt.termName: rxvt-unicode-256color
+URxvt.scrollbar_right: false
+URxvt.cursorUnderline: true
+URxvt.internalBorder: 25
+URxvt.cursorBlink: true
+URxvt.scrollBar: false
+URxvt.iso14755: false
+
+! copy paste
+URxvt.keysym.Control-c: eval:selection_to_clipboard
+URxvt.keysym.Control-v: eval:paste_clipboard
+URxvt.keysym.Control-Meta-c: builtin-string:
+URxvt.keysym.Control-Meta-v: builtin-string:
+
+! letter line
+URxvt.letterSpace: -3
+URxvt.lineSpace: 0
+
+! nord colors
+*.background: #2E3440
+*.foreground: #D8DEE9
+*.cursorColor: #81A1C1
+*.fadeColor: #EBCB8B
+
+! normal colors
+*.color0: #3B4252
+*.color1: #BF616A
+*.color2: #A3BE8C
+*.color3: #EBCB8B
+*.color4: #81A1C1
+*.color5: #B48EAD
+*.color6: #88C0D0
+*.color7: #E5E9F0
+
+! bright colors
+*.color8: #4C566A
+*.color9: #BF616A
+*.color10: #A3BE8C
+*.color11: #EBCB8B
+*.color12: #81A1C1
+*.color13: #B48EAD
+*.color14: #8FBCBB
+*.color15: #ECEFF4

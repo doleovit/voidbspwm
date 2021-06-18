@@ -1,0 +1,54 @@
+*func.txt*
+
+
+$ flh       # ~ files *
+$ fla       # / files *
+$ exh       # ~ executables *
+$ exa       # / executables *
+$ ccc       # can break stuff
+$ zzz       # get rid of sudo
+$ nnn       # tiny adjustment
+$ lck       # <x> lock screen
+$ rlp       # regenerate linux
+$ enc       # <foo> encryption
+$ dec       # <foo> decryption
+$ img       # picture overview
+$ iso       # wipe -a/-o write
+$ tma       # posttransmission
+$ cfn       # cleanup filename
+$ pdf       # detached μpdf ↑r
+$ mix       # jumbled overview
+$ mac       # Δ of mac address
+$ dmes      # more less  dmesg
+$ trim      # fstrim / +output       __________________________________
+$ lmod      # more less  lsmod      ( * toggle preview: ! open nvim: ? )
+$ mpvl      # mpv localprofile       ----------------------------------
+$ deps      # <foo> pkg ↑deps            \   ^__^
+$ fhd       # <foo> dd fish h             \  (oo)\_______
+$ svs       # status services                (__)\       )\/\
+$ ffp       # ffplay detached                    ||----w |
+$ fip       # wradio detached                    ||     ||
+$ off       # wlan go offline
+$ pov       # all pkgs ov ↓ v
+$ iov       # explicit ov ↓ v
+$ nvs       # neovim sudoedit
+$ dtu       # <foo>  dos2unix
+$ man       # more less 4 man
+$ ipt       # (oo) iptables r
+$ 2fa       # <foo>  oathtool
+$ mpc       # kernel ↓modules
+$ sh2       # sync /home/ to:
+$ xl        # x11 server logs
+$ cd        # cd + list files
+$ nt        # note ? → $ nt h
+$ on        # wlan  go online
+$ ov        # number of  pkgs
+$ tp        # more less tlpst
+$ zk        # a zombie killer
+$ se        # hwmon  coretemp
+$ qv        # <kuh> ? var set
+$ rs        # reset  terminal
+$ fp        # fish record off
+$ vi        # stands 4 neovim
+
+

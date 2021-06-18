@@ -1,0 +1,44 @@
+#!/bin/sh
+
+pgrep -x sxhkd >/dev/null || sxhkd &
+
+# workspace
+bspc monitor -d main surf work misc
+
+# settings
+bspc config border_width         1
+bspc config border_radius        0
+bspc config window_gap           9
+bspc config top_padding          25
+bspc config bottom_padding       10
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config focus_follows_pointer   true
+
+# rules
+bspc rule -a 'URxvt:syst' desktop='misc' follow=on
+bspc rule -a 'Firefox' desktop='surf' follow=on
+bspc rule -a 'URxvt:pstr' state=floating
+bspc rule -a 'mpv' state=floating
+
+# wallpaper
+feh --bg-fill "$HOME"/.config/sys/v1.png
+
+# colors
+bspc config focused_border_color    "#88C0D0"
+bspc config normal_border_color     "#3B4252"
+bspc config active_border_color     "#3B4252"
+bspc config urgent_border_color     "#EBCB8B"
+
+# slider
+xsetroot -cursor_name left_ptr
+setxkbmap -layout es
+xset s off s 0 0
+light -S 60
+
+# picomre
+picom --experimental-backends &
+
+# polybar
+"$HOME"/.config/polybar/launch.sh

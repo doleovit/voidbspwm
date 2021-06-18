@@ -1,0 +1,110 @@
+[colors]
+background = ${xrdb:background:#00000000}
+background-alt = #9F2E3440
+foreground = ${xrdb:foreground:#D8DEE9}
+primary = #88C0D0
+secondary = #BF616A
+
+;; BAR
+[bar/mybar]
+height = 26
+width = 15%
+offset-x = 84.4%
+offset-y = 6
+radius = 15
+
+border-size = 0
+border-color = ${colors.background-alt}
+wm-restack = bspwm
+override-redirect = false
+
+module-margin = 1
+line-size = 1
+padding=2
+bottom=false
+
+;; FONT
+font-0="DejaVu Sans:size=10:antialias=false"
+
+;; COLOR
+background = ${colors.background-alt}
+foreground = ${colors.foreground}
+
+;; BAR MODULES
+modules-left =
+modules-center = bspwm alsa date conn
+modules-right =
+
+;; MODULES
+[module/bspwm]
+type = internal/bspwm
+format = <label-state>
+index-sort = true
+enable-click = true
+reverse-scroll = false
+
+label-focused = %name:4:4:%
+label-occupied =
+label-empty =
+label-focused-foreground = ${colors.primary}
+label-focused-padding-right = 2
+
+[module/conn]
+type = internal/network
+interface =
+interval = 5
+
+label-connected = on
+label-connected-color1 = ${colors.foreground}
+format-disconnected = <label-disconnected>
+label-disconnected = off
+label-disconnected-color1 = ${colors.foreground}
+
+[module/date]
+type = internal/date
+interval = 10
+time = %H:%M
+time-alt =
+
+date =
+date-alt = "%a, %d %b"
+
+format-prefix-foreground = ${colors.primary}
+label-foreground = ${colors.foreground}
+label-padding = 1
+format-margin = 0
+label = %date% %time%
+
+[module/alsa]
+type = internal/alsa
+format-volume = <label-volume>
+format-volume-prefix-foreground = ${colors.primary}
+
+label-volume-foreground = ${colors.foreground}
+label-volume = %percentage%%
+
+format-muted-foreground = ${colors.foreground}
+format-muted-prefix-foreground = ${colors.primary}
+label-muted = muted
+
+[module/battery]
+type = internal/battery
+battery =
+adapter =
+full-at = 98
+
+format-charging = <label-charging>
+format-discharging = <label-discharging>
+
+format-charging-prefix-foreground = ${colors.primary}
+label-charging = %percentage%%
+
+format-discharging-prefix-foreground = ${colors.primary}
+label-discharging = %percentage%%
+
+[settings]
+pseudo-transparency = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0

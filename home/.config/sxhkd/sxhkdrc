@@ -1,0 +1,87 @@
+# terminal emulator
+super + Return
+	urxvt
+
+# reload pbconfig
+super + p
+        pkill -USR1 -x polybar
+
+# reload sxhkd
+alt + shift + r
+        pkill -USR1 -x sxhkd
+
+# quit bspwm
+super + shift + e
+        bspc quit
+
+# close and kill
+super + {_,shift + }q
+	bspc node -{c,k}
+
+# tiled or monocle
+super + m
+	bspc desktop -l next
+
+# window state
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# volume keys
+XF86AudioRaiseVolume
+        amixer -q set Master 5%+ unmute
+XF86AudioLowerVolume
+        amixer -q set Master 5%- unmute
+XF86AudioMute
+        amixer -q set Master mute
+
+# brightness keys
+XF86MonBrightness{Up,Down}
+        light {-A 5,-U 5}
+
+# screenshot
+Print
+    scrot -m -b -q 100
+
+# focus last desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# send to desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# expand side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract side inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# browser
+super + w
+        firefox --disable-dbus --disable-necko-wifi
+
+# terminal
+super + u ; {p,h,f,n,s,v}
+        { \
+        urxvt -name pref -e nvim "$HOME"/.config/sxhkd/sxhkdrc, \
+        urxvt -name help -e nvim "$HOME"/.config/sys/func.txt, \
+        urxvt -name file -e nnn -C -e, \
+        urxvt -name news -e newsboat, \
+        urxvt -name syst -e top -c, \
+        urxvt -name nvid -e nvim ./ \
+        }
+
+# terminal
+super + alt + u ; {2,1,m,t}
+        { \
+        urxvt -name rboo -e sudo reboot, \
+        urxvt -name poff -e sudo poweroff, \
+        urxvt -name fipx -e pkill ffplay, \
+        urxvt -name pstr -hold -e pstree \
+        }
