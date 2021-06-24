@@ -25,7 +25,7 @@
     fi
 
     printf "%s\n" \
-    "this is a restrictive setup: line 43-50, 135-142, 224-226" \
+    "this is a restrictive setup: line 43-50, 135-141, 225-227" \
     "- it is recommended to adapt these commands to your needs"
 
     read -p "continue anyway (y/n)? " answer
@@ -139,7 +139,6 @@
     kernel.sysrq=0
     kernel.panic=30
     vm.panic_on_oom=1
-    kernel.panic_on_oops=30
 EOF
 
     cut -c5- <<EOF \
