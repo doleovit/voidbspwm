@@ -25,7 +25,7 @@
     fi
 
     printf "%s\n" \
-    "this is a restrictive setup: line 43-50, 135-141, 225-227" \
+    "this is a restrictive setup: line 43-50, 135-141, 223-225" \
     "- it is recommended to adapt these commands to your needs"
 
     read -p "continue anyway (y/n)? " answer
