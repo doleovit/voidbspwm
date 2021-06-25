@@ -85,7 +85,7 @@ $ bash voidbspwm/install.sh
 ## ~ screen
 
 ```
-if you run 'it' in a vm, adapt line 27 of
+if you run 'it' in a vm, adapt line 26 of
 bspwmrc (default 1920x1080) to your needs
 ```
 
