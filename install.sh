@@ -25,7 +25,7 @@
     fi
 
     printf "%s\n" \
-    "this is a restrictive setup: line 43-49, 140-146, 228-230" \
+    "this is a restrictive setup: line 43-49, 139-145, 227-229" \
     "- it is recommended to adapt these commands to your needs"
 
     read -p "continue anyway (y/n)? " answer
@@ -61,7 +61,6 @@
     sudo xbps-install -y void-repo-nonfree
 
     sudo xbps-install -y xorg-minimal
-    sudo xbps-install -y xsettingsd
     sudo xbps-install -y setxkbmap
     sudo xbps-install -y xsetroot
     sudo xbps-install -y xrandr
@@ -109,7 +108,7 @@
 
     sudo xbps-install -y wireguard-tools
 
-    echo "configuration .."
+    echo "configuration ..
     # login
     sudo sed -i 's/--noclear/--noclear\ --skip-login\ --login-options=$USER/g' /etc/sv/agetty-tty1/conf
 
