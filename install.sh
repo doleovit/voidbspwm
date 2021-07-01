@@ -108,7 +108,7 @@
 
     sudo xbps-install -y wireguard-tools
 
-    echo "configuration ..
+    echo "configuration .."
     # login
     sudo sed -i 's/--noclear/--noclear\ --skip-login\ --login-options=$USER/g' /etc/sv/agetty-tty1/conf
 
