@@ -25,7 +25,7 @@
     fi
 
     printf "%s\n" \
-    "this is a restrictive setup: line 43-50, 135-141, 223-225" \
+    "this is a restrictive setup: line 43-49, 140-146, 228-230" \
     "- it is recommended to adapt these commands to your needs"
 
     read -p "continue anyway (y/n)? " answer
@@ -40,9 +40,8 @@
     sudo xbps-install -Syu
 
     # ignorepkg
-    echo "ignorepkg=linux-firmware-nvidia" | sudo tee /etc/xbps.d/80-ignore-linux-firmware-nvidia.conf >/dev/null
-    echo "ignorepkg=adwaita-icon-theme" | sudo tee /etc/xbps.d/70-ignore-adwaita-icon-theme.conf >/dev/null
-    echo "ignorepkg=xorg-video-drivers" | sudo tee /etc/xbps.d/60-ignore-xorg-video-drivers.conf >/dev/null
+    echo "ignorepkg=linux-firmware-nvidia" | sudo tee /etc/xbps.d/70-ignore-linux-firmware-nvidia.conf >/dev/null
+    echo "ignorepkg=adwaita-icon-theme" | sudo tee /etc/xbps.d/60-ignore-adwaita-icon-theme.conf >/dev/null
     echo "ignorepkg=btrfs-progs" | sudo tee /etc/xbps.d/50-ignore-btrfs-progs.conf >/dev/null
     echo "ignorepkg=pulseaudio" | sudo tee /etc/xbps.d/40-ignore-pulseaudio.conf >/dev/null
     echo "ignorepkg=polkit" | sudo tee /etc/xbps.d/30-ignore-polkit.conf >/dev/null
@@ -50,7 +49,7 @@
     echo "ignorepkg=dbus" | sudo tee /etc/xbps.d/10-ignore-dbus.conf >/dev/null
 
     # insurance
-    if ls -U /etc/xbps.d | wc -l | xargs test 8 -eq; then
+    if ls -U /etc/xbps.d | wc -l | xargs test 7 -eq; then
         sudo xbps-remove -R -y linux-firmware-nvidia btrfs-progs
     else
         echo -e "ignorepkg \033[5m  error\033[0m"; exit
@@ -61,8 +60,15 @@
     sudo xbps-install -y void-repo-multilib
     sudo xbps-install -y void-repo-nonfree
 
-    sudo xbps-install -y linux
-    sudo xbps-install -y xorg
+    sudo xbps-install -y xorg-minimal
+    sudo xbps-install -y xsettingsd
+    sudo xbps-install -y setxkbmap
+    sudo xbps-install -y xsetroot
+    sudo xbps-install -y xrandr
+    sudo xbps-install -y xrdb
+    sudo xbps-install -y xset
+
+    sudo xbps-install -y dejavu-fonts-ttf
 
     sudo xbps-install -y intel-video-accel
     sudo xbps-install -y mesa-vaapi
@@ -80,7 +86,6 @@
     sudo xbps-install -y feh
 
     sudo xbps-install -y fish-shell
-    sudo xbps-install -y fontconfig
     sudo xbps-install -y macchanger
     sudo xbps-install -y procps-ng
     sudo xbps-install -y neovim
