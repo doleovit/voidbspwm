@@ -363,7 +363,9 @@ JFF
     # memo
     sudo chage -M 181 -m 0 -W 7 "$USER"
 
+    # last
     echo "import dotfiles .."
+
     shopt -s dotglob
     cp -r voidbspwm/home/* "$HOME"/
 
