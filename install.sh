@@ -14,13 +14,13 @@
 
     # beware
     if [[ "$PWD" =~ voidbspwm ]]; then
-        echo -e "\033[5merror  \033[0mthe script was executed from: $PWD"
+        printf "\033[5merror  \033[0mscript executed from: %s\n" "$PWD"
         exit
     fi
 
     # notice
-    if lspci -k | grep -i -C 2 -E 'vga|3d' | grep -i -w -q 'nvidia'; then
-        echo -e "\033[5msorry  \033[0mthis setup does not support nvidia"
+    if lspci -k | grep -i -C 2 -E 'vga|3d' | grep -iq -w 'nvidia'; then
+        printf "\033[5msorry  \033[0mthis setup does not support nvidia"
         exit
     fi
 
@@ -52,7 +52,7 @@
     if ls -U /etc/xbps.d | wc -l | xargs test 7 -eq; then
         sudo xbps-remove -R -y linux-firmware-nvidia btrfs-progs
     else
-        echo -e "ignorepkg \033[5m  error\033[0m"; exit
+        printf "ignorepkg \033[5m  error\033[0m"; exit
     fi
 
     echo "installation .."
@@ -320,6 +320,13 @@ EOF
         voidbspwm/home/.config/polybar/config
     fi
 
+    # sshl
+    if ! grep -w '^PermitRootLogin no' /etc/ssh/sshd_config
+    then
+        echo "PermitRootLogin no" \
+        | sudo tee -a /etc/ssh/sshd_config >/dev/null
+    fi
+
     # lbse
     if test -n "$chty" -a -n "$batt" -a -n "$adap"; then
         sudo ln -s /etc/sv/lowbat /var/service/
@@ -329,6 +336,13 @@ EOF
     if sudo dmesg | grep -i -E -q 'hyperv.*detect'; then
         sed -i '/^picom/d;/paper$/a xrandr -s 1920x1080' \
         voidbspwm/home/.config/bspwm/bspwmrc
+    fi
+
+    # rsuw
+    if ! grep -Eq '.*wheel.*uid' /etc/pam.d/su /etc/pam.d/su-l
+    then
+        echo "auth required pam_wheel.so use_uid" \
+        | sudo tee -a /etc/pam.d/su /etc/pam.d/su-l >/dev/null
     fi
 
     # perm
@@ -343,17 +357,16 @@ EOF
     sudo usermod -s /usr/bin/fish "$USER"
 
     cut -c5- <<'JFF' | fish
-    set -U -x SXHKD_SHELL '/usr/bin/sh'
+    set -U -x SXHKD_SHELL /usr/bin/sh
 JFF
 
-    # final
+    # memo
     sudo chage -M 181 -m 0 -W 7 "$USER"
-    sudo usermod -p '!' root
 
     echo "import dotfiles .."
     shopt -s dotglob
     cp -r voidbspwm/home/* "$HOME"/
 
-    echo -e "\033[5mdone  \033[0m run\nsudo reboot"
+    printf "\033[5mdone  \033[0m run\nsudo reboot"
     ;;
 esac
