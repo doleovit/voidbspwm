@@ -364,11 +364,9 @@ JFF
     sudo chage -M 181 -m 0 -W 7 "$USER"
 
     # last
-    echo "import dotfiles .."
-
     shopt -s dotglob
     cp -r voidbspwm/home/* "$HOME"/
 
-    printf "\033[5mdone  \033[0m run\nsudo reboot"
+    printf "\033[5mdone  \033[0msudo reboot"
     ;;
 esac
