@@ -69,7 +69,6 @@
 
     sudo xbps-install -y dejavu-fonts-ttf
 
-    sudo xbps-install -y intel-video-accel
     sudo xbps-install -y mesa-vaapi
     sudo xbps-install -y mesa-vdpau
     sudo xbps-install -y mesa-dri
@@ -108,9 +107,14 @@
 
     sudo xbps-install -y wireguard-tools
 
-    echo "configuration .."
+    # itacc
+    if lspci -k | grep -i -C 2 -E 'vga|3d' | grep -iq -w 'intel'; then
+        sudo xbps-install -y intel-video-accel
+    fi
+
     # login
-    sudo sed -i 's/--noclear/--noclear\ --skip-login\ --login-options=$USER/g' /etc/sv/agetty-tty1/conf
+    sudo sed -i 's/noclear/& --skip-login --login-options='"$USER"'/' \
+    /etc/sv/agetty-tty1/conf
 
     # services
     sudo rm -f /var/service/agetty-tty{3,4,5,6}
