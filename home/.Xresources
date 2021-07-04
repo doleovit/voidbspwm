@@ -15,9 +15,9 @@ Xft.rgba: rgb
 ! 96-192
 Xft.dpi: 96
 
-! none-50-55-60
+! 40-50
 URxvt.transparent: true
-URxvt.shading: 50
+URxvt.shading: 40
 
 ! urxvt settings
 URxvt.termName: rxvt-unicode-256color
