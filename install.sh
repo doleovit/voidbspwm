@@ -337,7 +337,7 @@ EOF
     fi
 
     # vmpi
-    if sudo dmesg | grep -i -E -q 'hyperv.*detect'; then
+    if sudo dmesg | grep -i -E -q 'hyperv.*detect|qemu'; then
         sed -i '/^picom/d;/paper$/a xrandr -s 1920x1080' \
         voidbspwm/home/.config/bspwm/bspwmrc
     fi
