@@ -279,6 +279,7 @@ EOF
         TLP_DEFAULT_MODE=AC
         TLP_PERSISTENT_DEFAULT=1
 EOF
+    fi
 
     # proc
     sudo groupadd pif
@@ -287,7 +288,6 @@ EOF
     | sudo tee -a /etc/rc.local >/dev/null
     mount -o remount,nosuid,nodev,noexec,hidepid=invisible,gid=pif /proc
 EOF
-    fi
 
     # μcode
     if grep -i 'vendor' /proc/cpuinfo | uniq | grep -i -q 'intel'; then
