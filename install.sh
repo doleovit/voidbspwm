@@ -249,14 +249,6 @@ EOF
     end
 EOF
 
-    # proc
-    sudo groupadd pif
-    sudo usermod -a -G pif "$USER" \
-    && cut -c5- <<EOF \
-    | sudo tee -a /etc/rc.local >/dev/null
-    mount -o remount,nosuid,nodev,noexec,hidepid=invisible,gid=pif /proc
-EOF
-
     # idv
     chty="$(grep -E '8|9|10|14' /sys/class/dmi/id/chassis_type)"
 
@@ -286,6 +278,14 @@ EOF
         | sudo tee -a /etc/tlp.d/*.conf >/dev/null
         TLP_DEFAULT_MODE=AC
         TLP_PERSISTENT_DEFAULT=1
+EOF
+
+    # proc
+    sudo groupadd pif
+    sudo usermod -a -G pif "$USER" \
+    && cut -c5- <<EOF \
+    | sudo tee -a /etc/rc.local >/dev/null
+    mount -o remount,nosuid,nodev,noexec,hidepid=invisible,gid=pif /proc
 EOF
     fi
 
